@@ -1,0 +1,30 @@
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 150px;
+}
+body h1 {
+  text-align: center;
+}
+body section {
+  display: flex;
+  width: 400px;
+  height: 150px;
+  justify-content: space-around;
+  align-items: center;
+  font-size: larger;
+  color: white;
+  background-color: green;
+  border-radius: 5px;
+  box-shadow: 2px 2px 2px black;
+  margin: 10px;
+}
+body button {
+  width: 400px;
+  height: 40px;
+  border-radius: 3px;
+  box-shadow: 2px 2px 2px black;
+  color: green;
+  background-color: lightblue;
+}/*# sourceMappingURL=style.css.map */
