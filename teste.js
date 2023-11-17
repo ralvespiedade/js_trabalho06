@@ -1,34 +1,17 @@
-const banco = {
-  conta: "123456",
-  saldo: 1000,
-  tipoDeConta: "corrente",
-  agencia: "7890",
+const Sequelize = require("sequelize")
 
-  buscarSaldo: function () {
-    return this.saldo
-  },
 
-  deposito: function (valor) {
-    this.saldo += valor
-    return `Depósito de R$${valor} realizado. Novo saldo: R$${this.saldo}`
-  },
+const sequelize = new Sequelize({
+    storage: './database.sqlite',
+    dialect: 'sqlite',
+});
 
-  saque: function (valor) {
-    if (valor > this.saldo) {
-      return "Saldo insuficiente para saque."
-    } else {
-      this.saldo -= valor
-      return `Saque de R$${valor} realizado. Novo saldo: R$${this.saldo}`
+
+(async () => {
+    try {
+        await sequelize.authenticate();
+        console.log('Conexão realizada com sucesso!!!');
+    } catch (error) {
+        console.error('Erro na conexão: ', error);
     }
-  },
-
-  numeroDaConta: function () {
-    return this.conta
-  }
-}
-
-// Testando os métodos do objeto banco
-console.log("Saldo atual:", banco.buscarSaldo())
-console.log(banco.deposito(500))
-console.log(banco.saque(300))
-console.log("Número da conta:", banco.numeroDaConta())
+})();
